@@ -5,7 +5,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import fon_quations from "../assets/quations.png";
 
-export default function FAQ() {
+export default function FAQ(): JSX.Element {
   return (
     <SEO title="Rof1yev | FAQ">
       <Layout>

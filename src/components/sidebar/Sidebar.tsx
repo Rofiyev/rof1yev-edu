@@ -24,7 +24,7 @@ const socials_icons: IconType[] = [
   LuContact,
 ];
 
-export default function Sidebar({ showSidebar }: ISidebar_Props) {
+export default function Sidebar({ showSidebar }: ISidebar_Props): JSX.Element {
   const { colorMode } = useColorMode();
   const { onOpen, onClose } = useDisclosure();
   const { asPath, push } = useRouter();

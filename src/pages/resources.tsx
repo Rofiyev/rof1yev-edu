@@ -5,19 +5,19 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import fon_react from "../assets/reactjs.png";
 import Image from "next/image";
 
-export default function Resources() {
+export default function Resources(): JSX.Element {
   return (
-    <SEO title="Rof1yev | Resources">
+    <SEO title="Rof1yev | Manbalar">
       <Layout>
         <Content>
           <Box pos={"relative"} width="100%" minHeight="100vh">
             <Box
               style={{
                 width: "800px",
-                height: "100vh",
+                height: "120vh",
                 position: "fixed",
                 zIndex: "-1",
-                top: "8%",
+                top: "-1%",
                 right: "-20%",
               }}
             >

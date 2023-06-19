@@ -14,3 +14,9 @@ export interface IHome_Card_Data {
   id: number,
   text: string
 }[];
+
+export interface IForm  {
+  name: string;
+  email: string;
+  messege: string
+}

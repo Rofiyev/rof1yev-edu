@@ -5,9 +5,9 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import fon_next from "../assets/nextjs.png";
 
-export default function Courses() {
+export default function Courses(): JSX.Element {
   return (
-    <SEO title="Rof1yev | Courses">
+    <SEO title="Rof1yev | Kurslar">
       <Layout>
         <Content>
           <Box pos={"relative"} width="100%" minHeight="100vh">

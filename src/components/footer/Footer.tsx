@@ -19,7 +19,7 @@ const icons: React.JSX.Element[] = [
   <FaLinkedin />,
 ];
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   const { colorMode } = useColorMode();
 
   return (
@@ -34,7 +34,7 @@ export default function Footer() {
             justify={"space-between"}
             direction={{ sm: "column", md: "row" }}
           >
-            <Text fontSize={"1xl"} fontWeight={"normal"} textAlign={'center'}>
+            <Text fontSize={"1xl"} fontWeight={"normal"} textAlign={"center"}>
               © 2023 Rof1yev. Barcha huquqlar himoyalangan
             </Text>
             <Flex gap={"10px"}>
