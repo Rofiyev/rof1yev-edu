@@ -32,7 +32,7 @@ export default function Content() {
       <Container maxW="container.xl">
         <Box p={{ sm: "0", md: "6" }}>
           <Card>
-            <CardBody paddingX={'2'} paddingY={'5'}>
+            <CardBody paddingX={"2"} paddingY={"5"}>
               <Flex justify={"space-between"} px={3} gap={"20px"}>
                 <Box w={{ sm: "100%", lg: "75%" }}>
                   <Flex direction={{ sm: "column", md: "row" }}>
@@ -59,9 +59,9 @@ export default function Content() {
                   </Text>
                   <Card
                     mt={"5"}
-                    bg={colorMode === "dark" && "gray.800"}
+                    bg={colorMode === "dark" ? "gray.800" : ""}
                     style={{
-                      border: colorMode === "dark" && "1px solid #393f49 ",
+                      border: colorMode === "dark" ? "1px solid #393f49 " : "",
                       boxShadow:
                         colorMode === "light"
                           ? `0 1px 5px #cccccca8`
