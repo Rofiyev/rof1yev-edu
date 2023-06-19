@@ -23,6 +23,10 @@ export default function SEO({
         <meta name="author" content={author} />
         <meta name="description" content={description} />
         <link rel="shortcut icon" href={"/favicon.ico"} type="image/x-icon" />
+        <meta
+          name="google-site-verification"
+          content="TWhx17k6Q6zi64nwcE1mT0QBcnOPl-ARF1TRx_lWQVA"
+        />
       </Head>
       {children}
     </>
