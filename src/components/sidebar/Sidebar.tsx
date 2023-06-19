@@ -56,8 +56,10 @@ export default function Sidebar({ showSidebar }: ISidebar_Props) {
             _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
             borderRadius={"md"}
             bg={
-              (asPath === item.route && colorMode === "light" && "gray.100") ||
-              (asPath === item.route && colorMode === "dark" && "gray.700")
+              (asPath === item.route && colorMode === "light"
+                ? "gray.100"
+                : "") ||
+              (asPath === item.route && colorMode === "dark" ? "gray.700" : "")
             }
             onClick={() => push(`${item.route}`)}
           >

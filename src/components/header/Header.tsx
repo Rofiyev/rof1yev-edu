@@ -55,8 +55,9 @@ export default function Header({
                 alt="Logo"
                 style={{
                   filter:
-                    colorMode !== "dark" &&
-                    `invert(100%) sepia(0%) saturate(7500%) hue-rotate(234deg) brightness(116%) contrast(103%)`,
+                    colorMode !== "dark"
+                      ? `invert(100%) sepia(0%) saturate(7500%) hue-rotate(234deg) brightness(116%) contrast(103%)`
+                      : "",
                 }}
               />
               <Text fontSize={"2xl"} fontWeight={"bold"}>
