@@ -40,6 +40,7 @@ export default function Header({
               placeItems={"center"}
               p={"1"}
               onClick={() => toggleSidebar(!showSidebar)}
+              aria-label="Menu Icon"
             >
               <FaBars />
             </Button>
@@ -72,6 +73,7 @@ export default function Header({
               display={{ sm: "none", md: "grid" }}
               placeItems={"center"}
               p={"1"}
+              aria-label="Email Icon"
             >
               <Link href={`mailto: rofiyevdilshod@gmail.com`}>
                 <MdEmail />
@@ -85,6 +87,7 @@ export default function Header({
               placeItems={"center"}
               p={"1"}
               border={1}
+              aria-label="Mode Icon button"
             >
               {colorMode !== "dark" ? <BsMoonStarsFill /> : <FaSun />}
             </Button>
@@ -94,6 +97,7 @@ export default function Header({
               display={{ base: "grid", md: "none" }}
               placeItems={"center"}
               p={"1"}
+              aria-label="Exit Icon button"
             >
               <FaArrowRight />
             </Button>
