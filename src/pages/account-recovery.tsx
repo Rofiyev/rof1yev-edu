@@ -44,7 +44,7 @@ export default function AccountRecovery(): JSX.Element {
   };
 
   return (
-    <SEO title="Rof1yev | Ro'yxatdan o'tish">
+    <SEO title="Rof1yev | Parolni tiklash">
       <Layout>
         <Content>
           <Box pos={"relative"} width="100%" minHeight={"80vh"}>
