@@ -20,7 +20,7 @@ export default function Header({
   showSidebar,
   toggleSidebar,
 }: IHeader_Props): JSX.Element {
-  const reouter = useRouter();
+  const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -47,7 +47,7 @@ export default function Header({
             <Flex
               align={"center"}
               cursor={"pointer"}
-              onClick={() => reouter.push("/")}
+              onClick={() => router.push("/")}
             >
               <Image
                 src={logoWhite}
@@ -105,6 +105,7 @@ export default function Header({
               colorScheme="teal"
               variant="outline"
               display={{ base: "none", md: "block" }}
+              onClick={() => router.push("/auth")}
             >
               Kirish
             </Button>

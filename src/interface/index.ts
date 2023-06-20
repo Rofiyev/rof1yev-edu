@@ -15,8 +15,19 @@ export interface IHome_Card_Data {
   text: string
 }[];
 
-export interface IForm  {
+export interface IForm {
   name: string;
   email: string;
   messege: string
 }
+
+export interface IAuth {
+  email: string;
+  password: string;
+}
+
+export interface IQuations {
+  id: number;
+  quation: string;
+  answer: string;
+}[]

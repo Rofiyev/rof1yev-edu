@@ -264,7 +264,7 @@ export default function Home(): JSX.Element {
                       ></path>
                     </svg>
                   </Box>
-                  <Text mt={"2"}>Kurni tanlang!</Text>
+                  <Text mt={"2"}>Kursni tanlang!</Text>
                 </Flex>
                 <Box
                   width={"130px"}

@@ -24,20 +24,18 @@ import { IForm } from "@/interface";
 import { useState } from "react";
 
 export default function Contact(): JSX.Element {
-  const [isLoading, setIsLoading] = useState<Boolean>(false);
   const toast = useToast();
 
   function getData(
     values: { name: string; email: string; messege: string },
     resetForm: Function
   ) {
-    if (values) {
+    if (values.email && values.messege && values.name) {
       setTimeout(() => {
         console.log(values);
-        setIsLoading(false);
         resetForm();
         toast({
-          title: "Muvaffaqiyatli yuborildi",
+          title: "Muvaffaqiyatli yuborildi!",
           status: "success",
           duration: 1500,
           isClosable: true,
@@ -158,12 +156,8 @@ export default function Contact(): JSX.Element {
                                 {errors.messege}
                               </FormErrorMessage>
                             </FormControl>
-                            <Button
-                              type="button"
-                              colorScheme="teal"
-                              onClick={() => setIsLoading(true)}
-                            >
-                              {!isLoading ? "Yuborish" : <Spinner />}
+                            <Button type="submit" colorScheme="teal">
+                              Yuborish
                             </Button>
                           </VStack>
                         </Form>
@@ -172,7 +166,7 @@ export default function Contact(): JSX.Element {
                   </Box>
                   <Box
                     width={{ sm: "0%", lg: "40%" }}
-                    display={{ sm: "none", lg: "block" }}
+                    display={{ sm: "none", md: "block" }}
                   >
                     <Image
                       src={email_img.src}
