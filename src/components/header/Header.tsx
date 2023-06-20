@@ -98,6 +98,7 @@ export default function Header({
               placeItems={"center"}
               p={"1"}
               aria-label="Exit Icon button"
+              onClick={() => router.push("/auth")}
             >
               <FaArrowRight />
             </Button>

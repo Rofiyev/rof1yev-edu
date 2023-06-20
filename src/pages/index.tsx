@@ -214,7 +214,9 @@ export default function Home(): JSX.Element {
                       </defs>
                     </svg>
                   </Box>
-                  <Text mt={"2"}>Ro'yxatdan o'ting!</Text>
+                  <Text mt={"2"} textAlign={"center"}>
+                    Ro'yxatdan o'ting!
+                  </Text>
                 </Flex>
                 <Box
                   width={"130px"}
@@ -264,7 +266,9 @@ export default function Home(): JSX.Element {
                       ></path>
                     </svg>
                   </Box>
-                  <Text mt={"2"}>Kursni tanlang!</Text>
+                  <Text mt={"2"} textAlign={"center"}>
+                    Kursni tanlang!
+                  </Text>
                 </Flex>
                 <Box
                   width={"130px"}
@@ -308,7 +312,9 @@ export default function Home(): JSX.Element {
                       </g>
                     </svg>
                   </Box>
-                  <Text mt={"2"}>O'rganishni boshlang!</Text>
+                  <Text mt={"2"} textAlign={"center"}>
+                    O'rganishni boshlang!
+                  </Text>
                 </Flex>
               </Flex>
             </Box>
