@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import image from "@/assets/css.png";
-import Image from "next/image";
 
 export default function Card_Item(): JSX.Element {
   const { colorMode } = useColorMode();
