@@ -1,4 +1,4 @@
-import { IHome_Card_Data, IQuations, ISidebar_Items, ISocial_Icons } from "@/interface";
+import { ICourses, IHome_Card_Data, IQuations, ISidebar_Items, ISocial_Icons } from "@/interface";
 
 export const socialsIcons: ISocial_Icons[] = [
   {
@@ -112,3 +112,29 @@ export const quationsData: IQuations[] = [
   },
 ];
 
+export const courses_data: ICourses[] = [
+  {
+    id: 5,
+    image_link: 'https://sammi.ac/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3gf746AKRbWNjB8OCoEB&w=3840&q=75',
+    slug: 'javascript',
+    title: 'JavaScript darslari to`liq kurs',
+    price: 20,
+    newPrice: 'Bepul'
+  },
+  {
+    id: 6,
+    image_link: 'https://sammi.ac/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3gf746AKRbWNjB8OCoEB&w=3840&q=75',
+    slug: 'javascript',
+    title: 'JavaScript darslari to`liq kurs',
+    price: 20,
+    newPrice: 'Bepul'
+  },
+  {
+    id: 7,
+    image_link: 'https://sammi.ac/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3gf746AKRbWNjB8OCoEB&w=3840&q=75',
+    slug: 'javascript',
+    title: 'JavaScript darslari to`liq kurs',
+    price: 20,
+    newPrice: 'Bepul'
+  },
+];

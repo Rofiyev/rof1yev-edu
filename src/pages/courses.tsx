@@ -1,9 +1,10 @@
 import { Card_Item, Content } from "@/components";
 import Layout from "@/layout/Layout";
 import SEO from "@/layout/seo/SEO";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import fon_next from "../assets/nextjs.png";
+import { courses_data } from "@/config";
 
 export default function Courses(): JSX.Element {
   return (
@@ -52,7 +53,14 @@ export default function Courses(): JSX.Element {
                 </Text>
               </Flex>
               <br />
-              <Card_Item />
+              <SimpleGrid
+                spacing={3}
+                templateColumns="repeat(auto-fill, minmax(280px, 1fr))"
+              >
+                {courses_data.map((data) => (
+                  <Card_Item key={data.id} data={data} />
+                ))}
+              </SimpleGrid>
             </Box>
           </Box>
         </Content>

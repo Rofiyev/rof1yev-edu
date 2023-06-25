@@ -30,4 +30,13 @@ export interface IQuations {
   id: number;
   quation: string;
   answer: string;
-}[]
+}[];
+
+export interface ICourses {
+  id: number,
+  image_link: string;
+  slug: string;
+  title: string;
+  price:number;
+  newPrice:string;
+}

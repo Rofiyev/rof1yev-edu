@@ -1,5 +1,4 @@
 import {
-  SimpleGrid,
   Card,
   CardHeader,
   Heading,
@@ -7,61 +6,62 @@ import {
   Text,
   CardFooter,
   CardBody,
-  Box,
-  Stack,
   Divider,
-  Flex,
   useColorMode,
 } from "@chakra-ui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import image from "@/assets/css.png";
+import { useRouter } from "next/router";
+import { ICourses } from "@/interface";
 
-export default function Card_Item(): JSX.Element {
+export default function Card_Item({ data }: DatasType): JSX.Element {
   const { colorMode } = useColorMode();
+  const router = useRouter();
 
   return (
-    <SimpleGrid
-      spacing={3}
-      templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
-    >
-      <Card p={"4"}>
-        <CardHeader p={"0"} display={"flex"} justifyContent={"center"}>
-          <LazyLoadImage
-            src={image.src}
-            alt="HTML"
-            effect="blur"
-            height={image.height}
-            width={image.width}
-          />
-        </CardHeader>
-        <CardBody p={"0"} mt={"6"}>
-          <Heading size="md" fontWeight={"500"} textAlign={"center"}>
-            HTML Darslari
-          </Heading>
-        </CardBody>
-        <Divider
-          my={"6"}
-          borderColor={
-            colorMode === "dark" ? "rgb(255,255,255,0.2)" : "rgb(0,0,0,0.2)"
-          }
+    <Card p={"4"}>
+      <CardHeader p={"0"} display={"flex"} justifyContent={"center"}>
+        <LazyLoadImage
+          src={data.image_link}
+          alt="HTML"
+          effect="blur"
+          style={{ borderRadius: "8px" }}
         />
-        <CardFooter
-          p={"0"}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
+      </CardHeader>
+      <CardBody p={"0"} mt={"4"}>
+        <Heading size="md" fontWeight={"500"} textAlign={"center"}>
+          {data.title}
+        </Heading>
+      </CardBody>
+      <Divider
+        my={"6"}
+        borderColor={
+          colorMode === "dark" ? "rgb(255,255,255,0.2)" : "rgb(0,0,0,0.2)"
+        }
+      />
+      <CardFooter
+        p={"0"}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <Button
+          variant={"outline"}
+          colorScheme="teal"
+          onClick={() => router.push("courses/html")}
         >
-          <Button variant={"outline"} colorScheme="teal">
-            Batafsil
-          </Button>
-          <Text fontSize={"large"}>
-            <sup>
-              <del>20$</del>
-            </sup>
-            &nbsp; Bepul
-          </Text>
-        </CardFooter>
-      </Card>
-    </SimpleGrid>
+          Batafsil
+        </Button>
+        <Text fontSize={"large"}>
+          <sup>
+            <del>${data.price}</del>
+          </sup>
+          &nbsp; {data.newPrice}
+        </Text>
+      </CardFooter>
+    </Card>
   );
+}
+
+interface DatasType {
+  data: ICourses;
 }
