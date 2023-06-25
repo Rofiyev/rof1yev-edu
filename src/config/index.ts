@@ -110,4 +110,5 @@ export const quationsData: IQuations[] = [
     quation: "Qanday qilib muallif bilan bog'lansam bo'ladi?",
     answer: "Kantakt bo'limiga o'tib xabar yozib qoldirsangiz bo'ladi."
   },
-]
+];
+

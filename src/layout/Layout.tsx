@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
-import { Footer, Header, Sidebar } from "../components";
+import { Footer, Header, Loader, Sidebar } from "../components";
 import { Layout_Props } from "./Layout.props";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Layout({ children }: Layout_Props): JSX.Element {
   const [showSidebar, setShowSidebar] = useState(true);

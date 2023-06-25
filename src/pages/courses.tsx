@@ -1,4 +1,4 @@
-import { Content } from "@/components";
+import { Card_Item, Content } from "@/components";
 import Layout from "@/layout/Layout";
 import SEO from "@/layout/seo/SEO";
 import { Box, Flex, Text } from "@chakra-ui/react";
@@ -51,24 +51,8 @@ export default function Courses(): JSX.Element {
                   Kurslar
                 </Text>
               </Flex>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-                eius facilis nobis ea impedit aperiam earum natus obcaecati hic
-                harum! Libero nam minus ut modi, perferendis, placeat dolore,
-                sunt porro asperiores qui natus? Eaque magni atque ab nemo!
-                Asperiores voluptates ad impedit ullam sapiente laboriosam
-                cumque unde labore reiciendis libero. Perspiciatis commodi quos
-                veniam voluptas fugiat?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-                eius facilis nobis ea impedit aperiam earum natus obcaecati hic
-                harum! Libero nam minus ut modi, perferendis, placeat dolore,
-                sunt porro asperiores qui natus? Eaque magni atque ab nemo!
-                Asperiores voluptates ad impedit ullam sapiente laboriosam
-                cumque unde labore reiciendis libero. Perspiciatis commodi quos
-                veniam voluptas fugiat?
-              </Text>
+              <br />
+              <Card_Item />
             </Box>
           </Box>
         </Content>
