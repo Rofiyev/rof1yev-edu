@@ -34,6 +34,7 @@ import { IoPeopleSharp } from "react-icons/io5";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { MdTimer, MdOutlineDescription } from "react-icons/md";
 import { ICourses } from "@/interface";
+import TabsComponents from "@/components/tabs/Tabs";
 
 const icons: React.ReactElement[] = [
   <BiMoviePlay />,
@@ -72,6 +73,7 @@ export default function Home() {
                   <Box width={{ sm: "100%", md: "63%" }}>
                     <CardBody>
                       <Heading
+                        fontFamily={"inherit"}
                         fontWeight={"bold"}
                         fontSize={"x-large"}
                         mb={"3"}
@@ -180,53 +182,9 @@ export default function Home() {
                     </Card>
                   </Box>
                 </Card>
-                <Tabs mt="6" width={"62%"} colorScheme="green" isFitted>
-                  <TabList>
-                    <Tab>
-                      <MdOutlineDescription
-                        fontSize={"18px"}
-                        style={{ marginRight: "5px" }}
-                      />
-                      Tavsif
-                    </Tab>
-                    <Tab>
-                      <BsJournalBookmarkFill
-                        fontSize={"18px"}
-                        style={{ marginRight: "5px" }}
-                      />
-                      Dastur
-                    </Tab>
-                    <Tab>
-                      <AiFillStar
-                        fontSize={"18px"}
-                        style={{ marginRight: "5px" }}
-                      />
-                      Sharh
-                    </Tab>
-                    <Tab>
-                      <FaChalkboardTeacher
-                        fontSize={"18px"}
-                        style={{ marginRight: "5px" }}
-                      />
-                      Mentor
-                    </Tab>
-                  </TabList>
-
-                  <TabPanels>
-                    <TabPanel>
-                      <p>one!</p>
-                    </TabPanel>
-                    <TabPanel>
-                      <p>two!</p>
-                    </TabPanel>
-                    <TabPanel>
-                      <p>three!</p>
-                    </TabPanel>
-                    <TabPanel>
-                      <p>four!</p>
-                    </TabPanel>
-                  </TabPanels>
-                </Tabs>
+                <Box mt="6" width={{ sm: "100%", md: "62%" }}>
+                  <TabsComponents item={item} />
+                </Box>
               </Fragment>
             ))}
           </Box>

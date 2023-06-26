@@ -51,4 +51,7 @@ export interface ICourses {
   students: number;
   update_date: string;
   lesson_ID: string;
+  info: string;
+  learning: string[];
+  demand: string[];
 }

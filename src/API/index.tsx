@@ -1,22 +1,26 @@
 import axios from "axios";
 
-const BaseUrl = "https://youtube-v31.p.rapidapi.com";
-
 const options = {
+  method: "GET",
+  url: "https://youtube-v31.p.rapidapi.com/playlistItems",
   params: {
-    maxResults: "70",
+    part: "snippet",
+    maxResults: "85",
   },
   headers: {
-    "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+    "X-RapidAPI-Key": "9be851b01amsh5bc72c62fbf856bp16fd3bjsn09789c02eeb3",
     "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
   },
 };
 
 export const getData = async (
-  urlData: string
+  params?: string
 ): Promise<{ succes: boolean; data?: any }> => {
   try {
-    const response = await axios.get(`${BaseUrl}/${urlData}`, options);
+    const response = await axios.request({
+      ...options,
+      params: { ...options.params, playlistId: `${params}` },
+    });
     return { succes: true, data: response.data };
   } catch (error) {
     console.error(error);
