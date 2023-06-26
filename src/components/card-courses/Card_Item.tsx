@@ -47,7 +47,7 @@ export default function Card_Item({ data }: DatasType): JSX.Element {
         <Button
           variant={"outline"}
           colorScheme="teal"
-          onClick={() => router.push("courses/html")}
+          onClick={() => router.push(`courses/${data.slug}`)}
         >
           Batafsil
         </Button>

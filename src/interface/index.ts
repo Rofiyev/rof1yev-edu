@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface ISocial_Icons {
   id: number,
   title: string,
@@ -37,6 +39,16 @@ export interface ICourses {
   image_link: string;
   slug: string;
   title: string;
-  price:number;
-  newPrice:string;
+  price: number;
+  newPrice: string;
+  stack: string;
+  description: string;
+  courses_info: {
+    key: string;
+    value: string;
+  }[];
+  level: number;
+  students: number;
+  update_date: string;
+  lesson_ID: string;
 }
