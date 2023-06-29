@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export default function Content({ children }: IContent_Props) {
   return (
-    <Box mt={"24"} overflowX={"hidden"}>
+    <Box mt={"20"} overflowX={"hidden"} minHeight={'80vh'}>
       <Container maxW="container.xl">
         <Box p={{ sm: "0", md: "6" }}>{children}</Box>
       </Container>

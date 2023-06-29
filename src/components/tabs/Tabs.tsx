@@ -14,6 +14,8 @@ import {
   AccordionPanel,
   AccordionIcon,
   useColorMode,
+  Stack,
+  Skeleton,
 } from "@chakra-ui/react";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoPeopleSharp } from "react-icons/io5";
@@ -31,6 +33,9 @@ import { useState, useEffect } from "react";
 import { getData } from "@/API";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { courses_data } from "@/config";
+import { setVideos } from "@/redux/slice/videos";
+import { useDispatch } from "react-redux";
+import { Fragment } from "react";
 
 const tabsData: { title: string; icon: JSX.Element }[] = [
   {
@@ -65,10 +70,15 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
   const [serverData, setServerData] = useState<any[]>([]);
   const [lessonID] = useState<string>(item.lesson_ID);
   const { colorMode } = useColorMode();
+  const dispatch = useDispatch();
 
   const getVideoPlayerLists = async () => {
     const res = await getData(lessonID);
-    res.succes && setServerData(res.data.items);
+    if (res.succes) {
+      const data = res.data.items;
+      setServerData(data);
+      dispatch(setVideos(data));
+    }
   };
 
   console.log(serverData);
@@ -155,47 +165,58 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
+              mb={'4'}
             >
               Kurs Dasturi
             </Heading>
-            <Accordion defaultIndex={[0]} allowMultiple allowToggle mt={"4"}>
-              <AccordionItem border={"none"}>
-                <Box
-                  p={"3"}
-                  bg={
-                    colorMode === "dark"
-                      ? "whiteAlpha.100"
-                      : "rgba(237, 242, 247, 0.5)"
-                  }
-                  borderRadius={"6px"}
-                >
-                  <AccordionButton
-                    gap={"10px"}
-                    _hover={{ background: "transparant" }}
+            {serverData.length <= 0 ? (
+              <Stack mt={"2"}>
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+              </Stack>
+            ) : (
+              <Accordion defaultIndex={[0]} allowMultiple allowToggle mt={"4"}>
+                <AccordionItem border={"none"}>
+                  <Box
+                    p={"3"}
+                    bg={
+                      colorMode === "dark"
+                        ? "whiteAlpha.100"
+                        : "rgba(237, 242, 247, 0.5)"
+                    }
+                    borderRadius={"6px"}
                   >
-                    <AccordionIcon />
-                    <Box as="span" flex="1" textAlign="left">
-                      #1. {item.title}
-                    </Box>
-                  </AccordionButton>
-                </Box>
-                <Box mt={"4"}>
-                  {serverData.map((item, i) => (
-                    <>
-                      <AccordionPanel py={2}>
-                        <Flex align={"center"} gap={"10px"}>
-                          <BsFillPlayCircleFill fontSize={"18px"} />
-                          {item?.snippet?.title.slice(
-                            0,
-                            item?.snippet?.title.lastIndexOf("||")
-                          )}
-                        </Flex>
-                      </AccordionPanel>
-                    </>
-                  ))}
-                </Box>
-              </AccordionItem>
-            </Accordion>
+                    <AccordionButton
+                      gap={"10px"}
+                      _hover={{ background: "transparant" }}
+                    >
+                      <AccordionIcon />
+                      <Box as="span" flex="1" textAlign="left">
+                        #1. {item.title}
+                      </Box>
+                    </AccordionButton>
+                  </Box>
+                  <Box mt={"4"}>
+                    {serverData.map((item, i) => (
+                      <Fragment key={i}>
+                        <AccordionPanel py={2}>
+                          <Flex align={"center"} gap={"10px"}>
+                            <BsFillPlayCircleFill fontSize={"18px"} />
+                            {item?.snippet?.title.slice(
+                              0,
+                              item?.snippet?.title.lastIndexOf("||")
+                            )}
+                          </Flex>
+                        </AccordionPanel>
+                      </Fragment>
+                    ))}
+                  </Box>
+                </AccordionItem>
+              </Accordion>
+            )}
           </TabPanel>
           <TabPanel>
             <Heading
@@ -244,8 +265,8 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
                     <IoPeopleSharp color="#38a169" fontSize={"18px"} /> 0
                   </Text>
                   <Text display={"flex"} align={"center"} gap={"6px"}>
-                    <BsPlayCircle color="#38a169" fontSize={"18px"} />
-                    #{courses_data.length} Kurslar
+                    <BsPlayCircle color="#38a169" fontSize={"18px"} />#
+                    {courses_data.length} Kurslar
                   </Text>
                 </Flex>
               </Box>

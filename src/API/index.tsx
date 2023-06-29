@@ -21,7 +21,10 @@ export const getData = async (
       ...options,
       params: { ...options.params, playlistId: `${params}` },
     });
-    return { succes: true, data: response.data };
+    return {
+      succes: true,
+      data: response.data !== undefined ? response.data : [],
+    };
   } catch (error) {
     console.error(error);
     return { succes: false };

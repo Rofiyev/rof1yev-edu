@@ -6,6 +6,8 @@ import { Poppins } from "next/font/google";
 import NextNProgress from "nextjs-progressbar";
 import { useState, useEffect } from "react";
 import { Loader } from "@/components";
+import { store } from "@/redux/store";
+import { Provider } from "react-redux";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const poppins = Poppins({ subsets: ["latin-ext"], weight: "500" });
@@ -31,7 +33,13 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
             height={3}
             showOnShallow={true}
           />
-          {loading ? <Loader /> : <Component {...pageProps} />}
+          {loading ? (
+            <Loader />
+          ) : (
+            <Provider store={store}>
+              <Component {...pageProps} />
+            </Provider>
+          )}
         </ChakraProvider>
       </CacheProvider>
     </main>
