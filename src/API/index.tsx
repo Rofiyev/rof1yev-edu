@@ -23,7 +23,7 @@ export const getData = async (
     });
     return {
       succes: true,
-      data: response.data !== undefined ? response.data : [],
+      data: response.data === undefined ? [] : response.data,
     };
   } catch (error) {
     console.error(error);

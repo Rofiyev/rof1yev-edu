@@ -6,18 +6,24 @@ import {
   useColorMode,
   Divider,
   Box,
+  SimpleGrid,
+  Input,
+  FormControl,
+  Button,
+  useToast,
 } from "@chakra-ui/react";
 import SEO from "@/layout/seo/SEO";
 import Layout from "@/layout/Layout";
-import { Content } from "@/components";
+import { Card_Item, Content } from "@/components";
 import Image from "next/image";
 import codeImg from "../assets/code.png";
 import { LuAlarmClock } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
 import { GiLevelEndFlag } from "react-icons/gi";
-import { homeCardData } from "@/config";
+import { courses_data, homeCardData } from "@/config";
 import { Fragment } from "react";
 import fon_javascript from "../assets/javascript.png";
+import { Field, Form, Formik } from "formik";
 
 const icons: JSX.Element[] = [
   <LuAlarmClock fontSize={"24px"} />,
@@ -29,6 +35,28 @@ const icons: JSX.Element[] = [
 
 export default function Home(): JSX.Element {
   const { colorMode } = useColorMode();
+  const toast = useToast();
+
+  function getData(values: { email: string }, resetForm: Function) {
+    if (values) {
+      setTimeout(() => {
+        console.log(values);
+
+        toast({
+          title: "Manzil yuborildi!",
+          status: "success",
+          duration: 1500,
+          isClosable: true,
+          position: "top-right",
+        });
+        resetForm();
+      }, 1000);
+    }
+  }
+
+  const initialValues: { email: string } = {
+    email: "",
+  };
 
   return (
     <SEO title={"Rof1yev - Online Education"}>
@@ -317,6 +345,91 @@ export default function Home(): JSX.Element {
                   </Text>
                 </Flex>
               </Flex>
+              <Flex mt="12" mb="4">
+                <Text
+                  fontSize={"xx-large"}
+                  fontWeight={"bold"}
+                  color={"green.500"}
+                >
+                  Yangi&nbsp;
+                </Text>
+                <Text
+                  fontSize={"xx-large"}
+                  fontWeight={"bold"}
+                  letterSpacing={2}
+                >
+                  Kurslar
+                </Text>
+              </Flex>
+              <SimpleGrid
+                spacing={3}
+                templateColumns="repeat(auto-fill, minmax(280px, 1fr))"
+              >
+                {courses_data.map((data) => (
+                  <Card_Item key={data.id} data={data} />
+                ))}
+              </SimpleGrid>
+
+              {/* Footer */}
+              <Card
+                mt={"8"}
+                width={{ sm: "100%", md: "80%", lg: "60%" }}
+                mx="auto"
+                px={"4"}
+              >
+                <CardBody paddingX={"2"} paddingY={"5"}>
+                  <Text
+                    mb={"2"}
+                    fontSize={"x-large"}
+                    textAlign={"center"}
+                    fontWeight={"600"}
+                  >
+                    Yangiliklardan xabardor bo'ling
+                  </Text>
+                  <Formik
+                    initialValues={initialValues}
+                    onSubmit={(values, { resetForm }) =>
+                      getData(values, resetForm)
+                    }
+                  >
+                    {({ errors, touched }) => (
+                      <Form>
+                        <Flex
+                          direction={"row"}
+                          flexWrap={"nowrap"}
+                          gap={"10px"}
+                        >
+                          <FormControl
+                            isInvalid={!!errors.email && touched.email}
+                          >
+                            <Field
+                              as={Input}
+                              id="email"
+                              name="email"
+                              type="text"
+                              variant="filled"
+                              placeholder="Email manzilingiz"
+                              _focusVisible={{
+                                outlineColor: "#31895a",
+                              }}
+                            />
+                          </FormControl>
+                          <Button type="submit" colorScheme="green">
+                            Yuborish
+                          </Button>
+                        </Flex>
+                      </Form>
+                    )}
+                  </Formik>
+                  <Text
+                    mt={"2"}
+                    textAlign={"center"}
+                    color={colorMode === "dark" ? "gray.500" : ""}
+                  >
+                    Hech qanday spam olmaysiz! ✌️
+                  </Text>
+                </CardBody>
+              </Card>
             </Box>
           </Box>
         </Content>

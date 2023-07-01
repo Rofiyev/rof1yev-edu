@@ -14,14 +14,12 @@ import {
   Text,
   VStack,
   Textarea,
-  Spinner,
   useToast,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import email_img from "../assets/email.png";
 import { Field, Form, Formik } from "formik";
 import { IForm } from "@/interface";
-import { useState } from "react";
 
 export default function Contact(): JSX.Element {
   const toast = useToast();
