@@ -94,28 +94,31 @@ export default function Header({
             >
               {colorMode !== "dark" ? <BsMoonStarsFill /> : <FaSun />}
             </Button>
-            <Button
-              colorScheme="teal"
-              variant="solid"
-              display={{ base: "grid", md: "none" }}
-              placeItems={"center"}
-              p={"1"}
-              aria-label="Exit Icon button"
-              onClick={() => router.push("/auth")}
-            >
-              <FaArrowRight />
-            </Button>
+
             {isLoaded ? (
               isSignedIn && <UserButton afterSignOutUrl="/" />
             ) : (
-              <Button
-                colorScheme="teal"
-                variant="outline"
-                display={{ base: "none", md: "block" }}
-                onClick={() => router.push("/sign-in")}
-              >
-                Kirish
-              </Button>
+              <>
+                <Button
+                  colorScheme="teal"
+                  variant="solid"
+                  display={{ base: "grid", md: "none" }}
+                  placeItems={"center"}
+                  p={"1"}
+                  aria-label="Exit Icon button"
+                  onClick={() => router.push("/auth")}
+                >
+                  <FaArrowRight />
+                </Button>
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                  display={{ base: "none", md: "block" }}
+                  onClick={() => router.push("/sign-in")}
+                >
+                  Kirish
+                </Button>
+              </>
             )}
           </Flex>
         </Flex>
