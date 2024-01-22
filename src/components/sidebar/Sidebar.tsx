@@ -37,7 +37,7 @@ export default function Sidebar({ showSidebar }: ISidebar_Props): JSX.Element {
       top={"0"}
       left={{ sm: showSidebar ? "-100%" : "0%", xl: "0%" }}
       transition={"all 0.3s ease-in-out"}
-      bg={colorMode !== "dark" ? "gray.50" : "gray.900"}
+      bg={colorMode !== "dark" ? "purple.300" : "purple.900"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"space-between"}
@@ -53,13 +53,15 @@ export default function Sidebar({ showSidebar }: ISidebar_Props): JSX.Element {
             cursor={"pointer"}
             onMouseEnter={onOpen}
             onMouseLeave={onClose}
-            _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
+            _hover={{ bg: useColorModeValue("gray.100", "purple.500") }}
             borderRadius={"md"}
             bg={
               (asPath === item.route && colorMode === "light"
                 ? "gray.100"
                 : "") ||
-              (asPath === item.route && colorMode === "dark" ? "gray.700" : "")
+              (asPath === item.route && colorMode === "dark"
+                ? "purple.500"
+                : "")
             }
             onClick={() => push(`${item.route}`)}
           >

@@ -40,7 +40,8 @@ export default function Courses(): JSX.Element {
                 <Text
                   fontSize={"xx-large"}
                   fontWeight={"bold"}
-                  color={"green.500"}
+                  color={"purple.700"}
+                  borderBottom={"3px solid #2A4365"}
                 >
                   Barcha&nbsp;
                 </Text>

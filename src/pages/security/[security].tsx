@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
 
   const getVideoPlayerLists = async () => {
     const res = await getData(`${query.lessonId}`);
-    if (res.succes && res.data.items !== undefined) {
+    if (res.succes && res.data.items) {
       const data = res.data.items;
       setWatch(data[0].snippet?.resourceId?.videoId);
       setData(data);
@@ -92,9 +92,7 @@ export default function Home(): JSX.Element {
                       key={item.id}
                       _hover={{
                         background:
-                          colorMode === "dark"
-                            ? "whiteAlpha.100"
-                            : "rgba(237, 242, 247, 0.5)",
+                          colorMode === "dark" ? "purple.500" : "purple.300",
                       }}
                       borderRadius={"4px"}
                       cursor={"pointer"}

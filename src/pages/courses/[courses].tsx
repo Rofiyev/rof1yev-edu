@@ -35,6 +35,7 @@ import { BsJournalBookmarkFill } from "react-icons/bs";
 import { MdTimer, MdOutlineDescription } from "react-icons/md";
 import { ICourses } from "@/interface";
 import TabsComponents from "@/components/tabs/Tabs";
+import { useUser } from "@clerk/nextjs";
 
 const icons: React.ReactElement[] = [
   <BiMoviePlay />,
@@ -50,14 +51,13 @@ export default function Home() {
   const [pageTitle, setPageTitle] = useState<string>("");
   const [data, setData] = useState<ICourses[] | never[]>([]);
   const { colorMode } = useColorMode();
+  const { isSignedIn } = useUser();
 
   const filter = () => {
-    courses_data.map((item) =>
-      item.slug === query.courses ? setPageTitle(item.title) : ""
+    courses_data.map(
+      (item) => item.slug === query.courses && setPageTitle(item.title)
     );
-    courses_data.map((item) =>
-      item.slug === query.courses ? setData([item]) : ""
-    );
+    courses_data.map((item) => item.slug === query.courses && setData([item]));
   };
 
   useEffect(filter, [query.courses]);
@@ -137,8 +137,9 @@ export default function Home() {
                         </Flex>
                         <Button
                           variant={"solid"}
-                          colorScheme="teal"
+                          colorScheme="purple"
                           onClick={() =>
+                            isSignedIn &&
                             push(`/security/free?lessonId=${item.lesson_ID}`)
                           }
                           w={"full"}

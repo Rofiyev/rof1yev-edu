@@ -81,15 +81,13 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
     }
   };
 
-  console.log(serverData);
-
   useEffect(() => {
     getVideoPlayerLists();
   }, []);
 
   return (
     <>
-      <Tabs colorScheme="green" isFitted>
+      <Tabs colorScheme="purple" isFitted>
         <TabList>
           {tabsData.map((item) => (
             <Tab key={item.title}>
@@ -103,6 +101,7 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
+              color={"purple.500"}
             >
               Ma'lumot
             </Heading>
@@ -112,6 +111,7 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
+              color={"purple.500"}
             >
               Nimani o'rganasiz
             </Heading>
@@ -144,6 +144,7 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
                 fontFamily={"inherit"}
                 mt={"6"}
                 mb={"2"}
+                color={"purple.500"}
               >
                 Talablar
               </Heading>
@@ -165,7 +166,8 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
-              mb={'4'}
+              mb={"4"}
+              color={"purple.500"}
             >
               Kurs Dasturi
             </Heading>
@@ -223,6 +225,7 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
+              color={"purple.500"}
             >
               Sharhlar
             </Heading>
@@ -238,6 +241,7 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
               fontSize={"xx-large"}
               letterSpacing={"1px"}
               fontFamily={"inherit"}
+              color={"purple.500"}
             >
               Mentor
             </Heading>
@@ -259,13 +263,13 @@ export default function TabsComponents({ item }: ITabs): JSX.Element {
                 </Text>
                 <Flex mt={"2"} gap={"15px"}>
                   <Text display={"flex"} align={"center"} gap={"6px"}>
-                    <AiFillStar color="#38a169" fontSize={"18px"} /> 4.8 Reyting
+                    <AiFillStar color="#553C9A" fontSize={"18px"} /> 4.8 Reyting
                   </Text>
                   <Text display={"flex"} align={"center"} gap={"6px"}>
-                    <IoPeopleSharp color="#38a169" fontSize={"18px"} /> 0
+                    <IoPeopleSharp color="#553C9A" fontSize={"18px"} /> 0
                   </Text>
                   <Text display={"flex"} align={"center"} gap={"6px"}>
-                    <BsPlayCircle color="#38a169" fontSize={"18px"} />#
+                    <BsPlayCircle color="#553C9A" fontSize={"18px"} />#
                     {courses_data.length} Kurslar
                   </Text>
                 </Flex>

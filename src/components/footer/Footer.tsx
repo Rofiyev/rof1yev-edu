@@ -24,7 +24,7 @@ export default function Footer(): JSX.Element {
 
   return (
     <>
-      <Box bg={colorMode !== "dark" ? "gray.50" : "gray.900"}>
+      <Box bg={colorMode !== "dark" ? "purple.300" : "purple.900"}>
         <Divider />
         <Container maxW={"container.xl"}>
           <Flex

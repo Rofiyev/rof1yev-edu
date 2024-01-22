@@ -55,14 +55,17 @@ export default function Contact(): JSX.Element {
         <Content>
           <Box pos={"relative"} width="100%" minHeight="80vh">
             <Box>
-              <Flex direction={"column"}>
+              <Flex>
                 <Text
                   fontSize={"xx-large"}
                   fontWeight={"bold"}
-                  color={"green.500"}
+                  color={"purple.700"}
+                  borderBottom={"3px solid #2A4365"}
                 >
                   Bog'lanish
                 </Text>
+              </Flex>
+              <Flex direction={"column"}>
                 <Text fontSize={"large"} fontWeight={"400"}>
                   Platformaga oid savol va takilf yozishingiz mumkin.
                 </Text>
@@ -91,7 +94,7 @@ export default function Contact(): JSX.Element {
                                 name="name"
                                 type="text"
                                 variant="filled"
-                                height="55px"
+                                height="45px"
                                 placeholder="Omar"
                                 validate={(value: string) => {
                                   let error;
@@ -115,7 +118,7 @@ export default function Contact(): JSX.Element {
                                 name="email"
                                 type="text"
                                 variant="filled"
-                                height="55px"
+                                height="45px"
                                 placeholder="example@gmail.com"
                                 validate={(value: string) => {
                                   let error;
@@ -154,7 +157,7 @@ export default function Contact(): JSX.Element {
                                 {errors.messege}
                               </FormErrorMessage>
                             </FormControl>
-                            <Button type="submit" colorScheme="teal">
+                            <Button type="submit" colorScheme="purple">
                               Yuborish
                             </Button>
                           </VStack>

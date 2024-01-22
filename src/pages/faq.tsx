@@ -50,14 +50,17 @@ export default function FAQ(): JSX.Element {
               />
             </Box>
             <Box>
-              <Flex direction={"column"}>
+              <Flex>
                 <Text
                   fontSize={"xx-large"}
                   fontWeight={"bold"}
-                  color={"green.500"}
+                  color={"purple.700"}
+                  borderBottom={"3px solid #2A4365"}
                 >
                   Savollar&nbsp;
                 </Text>
+              </Flex>
+              <Flex direction={"column"}>
                 <Text fontSize={"large"} fontWeight={"400"}>
                   Ko'p beriladigan savollarga javob.
                 </Text>

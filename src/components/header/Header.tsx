@@ -15,6 +15,7 @@ import { MdEmail } from "react-icons/md";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { IHeader_Props } from "./Header.props";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function Header({
   showSidebar,
@@ -22,10 +23,12 @@ export default function Header({
 }: IHeader_Props): JSX.Element {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
+  const { isSignedIn, isLoaded, user } = useUser();
+  console.log(user);
 
   return (
     <Box
-      bg={colorMode !== "dark" ? "gray.50" : "gray.900"}
+      bg={colorMode !== "dark" ? "purple.300" : "purple.900"}
       pos={"fixed"}
       width={"100%"}
       zIndex={"100"}
@@ -102,14 +105,18 @@ export default function Header({
             >
               <FaArrowRight />
             </Button>
-            <Button
-              colorScheme="teal"
-              variant="outline"
-              display={{ base: "none", md: "block" }}
-              onClick={() => router.push("/auth")}
-            >
-              Kirish
-            </Button>
+            {isLoaded ? (
+              isSignedIn && <UserButton afterSignOutUrl="/" />
+            ) : (
+              <Button
+                colorScheme="teal"
+                variant="outline"
+                display={{ base: "none", md: "block" }}
+                onClick={() => router.push("/sign-in")}
+              >
+                Kirish
+              </Button>
+            )}
           </Flex>
         </Flex>
       </Container>

@@ -9,6 +9,8 @@ import { Loader } from "@/components";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark, shadesOfPurple } from "@clerk/themes";
 
 const poppins = Poppins({ subsets: ["latin-ext"], weight: "500" });
 
@@ -23,25 +25,31 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <main className={`${poppins.className}`}>
-      <CacheProvider>
-        <ChakraProvider theme={theme}>
-          <CSSReset />
-          <NextNProgress
-            color="#38a169"
-            startPosition={0.3}
-            stopDelayMs={200}
-            height={3}
-            showOnShallow={true}
-          />
-          {loading ? (
-            <Loader />
-          ) : (
-            <Provider store={store}>
-              <Component {...pageProps} />
-            </Provider>
-          )}
-        </ChakraProvider>
-      </CacheProvider>
+      <ClerkProvider
+        appearance={{
+          baseTheme: shadesOfPurple,
+        }}
+      >
+        <CacheProvider>
+          <ChakraProvider theme={theme}>
+            <CSSReset />
+            <NextNProgress
+              color="#B794F4"
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={3}
+              showOnShallow={true}
+            />
+            {loading ? (
+              <Loader />
+            ) : (
+              <Provider store={store}>
+                <Component {...pageProps} />
+              </Provider>
+            )}
+          </ChakraProvider>
+        </CacheProvider>
+      </ClerkProvider>
     </main>
   );
 }
