@@ -9,3 +9,5 @@
 - [Next JS](https://rof1yev-online.vercel.app/courses/nextjs)
 - [Node JS](https://rof1yev-online.vercel.app/courses/nodejs)
 - [Express JS](https://rof1yev-online.vercel.app/courses/expressjs)
+
+<p align="center">©Rof1yev all rights reserved</p>
